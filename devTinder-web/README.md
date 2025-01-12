@@ -1,8 +1,21 @@
 # React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ - Create  a Vite + React application
+ - Remove unnecassary code and create a Hello World app
+ - Install Tailwind CSS
+ - Install Dais UI
+ - Add Navbar Component to App.jsx
+ - Create a Navbar.jsx seperate component file
+ - Install react router dom
+ - Create BrowserRouter > Routes > Route = / Body > Children
+ - Create an Outlet in your Body Component
+ - Create a footer
+ - Create a login Page
+ - Install axios
+ - CORS - install cors in backend => addd middleware to with configurations: origin, credentials: true
+ - Whenever you're making API call so pass axios => { withCredentials: true }
+ - install react-redux + @reduxjs/toolkit - https://redux-toolkit.js.org/tutorials/quick-start
+ - => configureStore => Provider => createSlice => add reducer to store
+ - Add redux devTools in chrome
+ - Login and see if your data is coming properly in the store
+ - Navbar should update as soon as user logs in
+ - Refactor our code to add constants file + create a component folder
