@@ -1,10 +1,11 @@
 import axios from 'axios'
-import React from 'react'
-import { BASE_URL } from '../utils/constants'
+import React, { useEffect, useState } from 'react'
+import { BASE_URL, defaulPhotoUrl } from '../utils/constants'
 import { useDispatch } from 'react-redux'
 import { removeFeedUser } from '../utils/feedSlice'
 
 const UserCard = ({ user }) => {
+    // const [age, setAge] = useState(user?.age || '');
     const dispatch = useDispatch();
     const handleAction = async (status) => {
         try {
@@ -14,15 +15,26 @@ const UserCard = ({ user }) => {
         } catch (err) {
             console.log(err);
         }
-
-
     }
+
+    // const calculateAge =() => {
+    //     if(user?.birthday) {
+    //         const dob = new Date(user.birthday);
+    //         const today = new Date();
+    //         if(dob.getDate()===today.getDate() && dob.getMonth()===today.getMonth()){
+    //             setAge(age+1);
+    //         }
+            
+    //     }
+    // }
+
+    // useEffect(calculateAge, user?.birthday)
 
     return (
         <div className="card bg-base-300 w-96 max-h-fit shadow-xl mx-10 mb-10">
             <figure>
                 <img className='max-w-full max-h-80 rounded-md my-1'
-                    src={user.photoUrl}
+                    src={user?.photoUrl || defaulPhotoUrl}
                     alt="User Profile" />
             </figure>
             <div className="card-body">
@@ -30,7 +42,7 @@ const UserCard = ({ user }) => {
                 <div>
                     <span>{user?.age}</span>
                     {user?.age && user?.gender && <span>, </span>}
-                    <span>{user?.gender.charAt(0).toUpperCase() + user?.gender.slice(1)}</span>
+                    {user?.gender && <span>{user?.gender?.charAt(0)?.toUpperCase() + user?.gender?.slice(1)}</span>}
                 </div>
                 <p>{user?.about}</p>
                 {user?.skills?.length ?

@@ -7,7 +7,6 @@ import { addFeed } from '../utils/feedSlice';
 
 const Feed = () => {
   const feed = useSelector(store => store.feed)
-  const [currentInd, setCurrentInd] = useState(0);
   const dispatch = useDispatch();
 
   const getFeed = async () => {

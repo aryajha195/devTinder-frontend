@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { removeUser } from '../utils/userSlice';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { BASE_URL } from '../utils/constants';
+import { BASE_URL, defaulPhotoUrl } from '../utils/constants';
 import { removeFeed } from '../utils/feedSlice';
 import { removeConnections } from '../utils/connectionsSlice';
 import { removeRequests } from '../utils/requestsSlice';
@@ -42,7 +42,7 @@ const Navbar = () => {
                 <div className="w-10 rounded-full">
                   <img
                     alt="user"
-                    src={user.photoUrl} />
+                    src={user.photoUrl ? user.photoUrl : defaulPhotoUrl} />
                 </div>
               </div>
             </div>

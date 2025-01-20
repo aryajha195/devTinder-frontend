@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from '../utils/userSlice';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../utils/constants';
 
 const Login = () => {
-  const [emailId, setEmailId] = useState("anushka@dev.com");
-  const [password, setPassword] = useState("Anushka@123");
+  const [emailId, setEmailId] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const userData = useSelector(store => store.user);
   const dispatch = useDispatch(); 
   const navigate = useNavigate();
@@ -24,9 +25,11 @@ const Login = () => {
       );
       dispatch(addUser(res.data));
       navigate("/")
+      setError('')
 
     } catch (err) {
       console.error(err);
+      setError(err.response.data)
     }
   }
 
@@ -48,8 +51,12 @@ const Login = () => {
             </div>
             <input value={password} onChange={(e)=>setPassword(e.target.value)}type="password" className="input input-bordered w-full max-w-xs" />
           </label>
-          <div className="card-actions justify-center my-4">
+          {error !== '' && (<div className="px-1 w-full">
+                        <span className="label-text-alt text-red-400"> {error} </span>
+                    </div>)}
+          <div className="card-actions items-center flex flex-col my-4">
             <button className="btn btn-primary" onClick={handleLogin}>Login</button>
+            <Link to="/register" className="text-sm underline italic mt-2">New to devTinder? Register here</Link>
           </div>
         </div>
       </div>
