@@ -46,6 +46,7 @@ const EditProfile = ({ user }) => {
     }
 
     const calculateAge = () => {
+        if(!birthday) return;
         
         const today = new Date();
         const dob = (new Date(birthday));
@@ -68,7 +69,7 @@ const EditProfile = ({ user }) => {
             return
         }
         setAge(yearsTillNow)
-        console.log(age)
+       
         setAgeError('')
 
     }
@@ -100,7 +101,6 @@ const EditProfile = ({ user }) => {
                             </div>
                             <input type="date" className="input input-bordered w-full 0" value={birthday} onChange={(e) => {
                                 setBirthday(e.target.value)
-                                // console.log(e.target.value)
                             }} />
                             <div className="px-1">
                                 {ageError !== '' && <span className="label-text-alt text-red-400">{ageError}</span>}
@@ -125,7 +125,6 @@ const EditProfile = ({ user }) => {
                             </div>
                             <textarea value={about} onChange={(e) => {
                                 setAbout(e.target.value)
-                                console.log(e.target.value)
                             }} className="textarea textarea-bordered h-24" placeholder="Bio"></textarea>
                         </label>
                         <label className="form-control w-full max-w-xs">

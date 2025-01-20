@@ -47,7 +47,6 @@ const Register = () => {
        
         const today = new Date();
         const dob = (new Date(birthday));
-        console.log('dob: ', dob);
         if (today < dob) {
             setAge('')
             setAgeError('Date should not be in future')
@@ -181,7 +180,6 @@ const Register = () => {
                         </div>
                         <input type="date" className="input input-bordered w-full bg-base-300" value={birthday} onChange={(e)=>{
                             setBirthday(e.target.value) 
-                            // console.log(e.target.value)
                         }}/>
                         <div className="px-1">
                             {ageError !== '' && <span className="label-text-alt text-red-400">{ageError}</span>}

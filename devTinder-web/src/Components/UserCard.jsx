@@ -40,7 +40,7 @@ const UserCard = ({ user }) => {
             <div className="card-body">
                 <h2 className="card-title">{user.firstName + " " + user.lastName}</h2>
                 <div>
-                    <span>{user?.age}</span>
+                    {user?.age && <span>{user?.age}</span>}
                     {user?.age && user?.gender && <span>, </span>}
                     {user?.gender && <span>{user?.gender?.charAt(0)?.toUpperCase() + user?.gender?.slice(1)}</span>}
                 </div>
