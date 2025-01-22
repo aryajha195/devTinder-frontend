@@ -23,3 +23,33 @@
  - If token is not present, redirect user to login page
  - Logout
  - Profile
+
+
+
+
+
+ #Deployment
+ - signup on aws
+ - launch instance
+ - chmod 400 <secret>.pem
+ - ssh command
+ - install node 
+ - git clone
+ - Frontend
+  - npm i
+  - npm run build
+  - sudo apt update
+  - sudo apt install nginx
+  - sudo systemctl start nginx
+  - sudo systemctl enable nginx
+  - Copy code from dist (build files) to /var/www/html
+  - Enable port :80 of your instance
+
+- Backend
+ - allowed ec2 instance public IP on mongodb server
+ - installed pm2 -g
+ - pm2 start npm -- start
+
+
+ Frontend: http://35.154.65.190
+ Backend: http://35.154.65.190:3000/
